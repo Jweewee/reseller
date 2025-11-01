@@ -1,6 +1,6 @@
 # Tuas Power Supply - Customer Signup Chatbot Prototype
 
-A web-based chatbot prototype that automates the customer signup process for Tuas Power Supply electricity plans. Built with OpenAI ChatKit and React.
+A web-based chatbot prototype that automates the customer signup process for Tuas Power Supply electricity plans. Built with React, TypeScript, and OpenAI GPT-4 for intelligent conversation handling.
 
 ## Features
 
@@ -34,35 +34,29 @@ A web-based chatbot prototype that automates the customer signup process for Tua
 ## Technology Stack
 
 - **Frontend**: React 18 + TypeScript + Vite
-- **Chat Interface**: OpenAI ChatKit React components
-- **AI**: OpenAI GPT-4 for conversation handling
+- **Chat Interface**: Custom React chat UI with responsive design
+- **AI**: OpenAI GPT-4 for intelligent conversation handling
 - **State Management**: Zustand for structured data storage
 - **Validation**: Custom validation utilities with date-fns
-- **Styling**: CSS-in-JS with responsive design
+- **Styling**: CSS-in-JS with responsive mobile-first design
 
 ## Installation & Setup
 
 ### Prerequisites
 
-- Node.js 18+ and pnpm
+- Node.js 18+ and npm
 - OpenAI API key
 
 ### 1. Install Dependencies
 
-From the project root directory:
-
 ```bash
 cd tuas-chatbot
-pnpm install
+npm install
 ```
 
 ### 2. Environment Configuration
 
-```bash
-cp .env.example .env
-```
-
-Edit `.env` and add your OpenAI API key:
+Edit the `.env` file and add your OpenAI API key:
 
 ```env
 VITE_OPENAI_API_KEY=your_actual_openai_api_key_here
@@ -70,24 +64,21 @@ VITE_OPENAI_API_KEY=your_actual_openai_api_key_here
 
 **⚠️ Security Note**: This is a prototype that calls OpenAI directly from the browser. In production, API calls should be made from a secure backend server.
 
-### 3. Install ChatKit React Package
-
-Since this uses the local ChatKit package, install it from the parent workspace:
+### 3. Run Development Server
 
 ```bash
-cd ../
-pnpm install
-pnpm build
-cd tuas-chatbot
-```
-
-### 4. Run Development Server
-
-```bash
-pnpm dev
+npm run dev
 ```
 
 The application will be available at `http://localhost:3001`
+
+### 🚀 Quick Start
+
+1. Get your OpenAI API key from [OpenAI Platform](https://platform.openai.com/api-keys)
+2. Edit `.env` file and paste your API key
+3. Run `npm run dev`
+4. Open http://localhost:3001 in your browser
+5. Start testing with: "I'm with SP Services" or "I'm with Senoko Energy"
 
 ## Usage
 
@@ -165,11 +156,11 @@ interface CustomerApplication {
 
 ## Available Scripts
 
-- `pnpm dev` - Start development server
-- `pnpm build` - Build for production
-- `pnpm preview` - Preview production build
-- `pnpm lint` - Run ESLint
-- `pnpm type-check` - Run TypeScript type checking
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+- `npm run type-check` - Run TypeScript type checking
 
 ## API Integration
 
@@ -222,23 +213,26 @@ CONFIRMATION → SIGNATURE → COMPLETED
 
 ### Common Issues
 
-**1. ChatKit Integration Errors**
-- Ensure parent workspace packages are built: `cd ../ && pnpm build`
-- Check if @openai/chatkit-react is properly installed
-
-**2. OpenAI API Errors**
+**1. OpenAI API Errors**
 - Verify API key is correct in .env file
 - Check OpenAI account has sufficient credits
 - Ensure API key has proper permissions
+- Check browser console for detailed error messages
 
-**3. Build Errors**
-- Run `pnpm clean` in parent directory
-- Delete node_modules and run `pnpm install` again
-- Check TypeScript errors with `pnpm type-check`
+**2. Build Errors**
+- Delete node_modules and run `npm install` again
+- Check TypeScript errors with `npm run type-check`
+- Ensure all dependencies are properly installed
 
-**4. Development Server Issues**
+**3. Development Server Issues**
 - Check if port 3001 is available
-- Try running with `--host` flag: `pnpm dev --host`
+- Try running with `--host` flag: `npm run dev --host`
+- Clear browser cache and restart the server
+
+**4. Environment Variables**
+- Ensure `.env` file exists in the project root
+- Verify VITE_OPENAI_API_KEY is set correctly
+- Restart the development server after changing environment variables
 
 ## Future Enhancements
 
@@ -259,6 +253,27 @@ For technical issues or questions about this prototype:
 - Review the conversation flow states
 - Test with the provided scenarios
 - Ensure environment variables are properly set
+
+## Project Status
+
+✅ **Complete Prototype Ready for Testing**
+
+This prototype includes:
+- Complete 7-step conversation flow
+- Smart customer routing (SP vs Retailer)
+- Edge case detection and rejection
+- Plan selection with current rates
+- Full data validation suite
+- Digital signature capture
+- Responsive mobile-friendly UI
+- OpenAI GPT-4 integration
+
+## Demo Instructions
+
+1. **SP Customer Flow**: Start with "I'm with SP Services"
+2. **Retailer Customer Flow**: Try "I'm with Senoko Energy"
+3. **Edge Case Testing**: Test "I have solar panels"
+4. **Validation Testing**: Try invalid NRIC like "12345"
 
 ## License
 
